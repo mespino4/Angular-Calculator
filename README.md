@@ -1,4 +1,4 @@
-# AngularCalculator
+# Angular Calculator
 
 Just a simple calculator app made with Angular and Tailwind CSS
 
