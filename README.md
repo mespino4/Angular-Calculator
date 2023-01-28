@@ -4,4 +4,4 @@ Just a simple calculator app made with Angular and Tailwind CSS
 
 ## Development server
 
-![Screenshot](screenshot.png)
+![Screenshot](Screenshots\ss1.png)
