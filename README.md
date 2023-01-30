@@ -1,6 +1,6 @@
 # Angular Calculator
 
-Just a simple calculator app made with Angular 14 and Tailwind CSS
+Just a simple calculator app made with Angular 15 and Tailwind CSS
 
 ## Screenshot
 
