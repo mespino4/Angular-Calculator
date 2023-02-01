@@ -10,5 +10,5 @@ Supports all 4 basic arithmetic addition subtraction multiplication and division
 ![Screenshot](Screenshots/angcalc1.png)
 
 ## Immediate Solution
-You will see a solution immediately as an integer is entered
-![Screenshot](Screenshots/angcalc1.png)
+The solution will update everytime a number is pressed
+![Screenshot](Screenshots/angcalc2.png)
