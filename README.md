@@ -2,6 +2,8 @@
 
 Just a simple calculator app made with Angular 15 and Tailwind CSS
 
+Try it → https://melyespinofl96.github.io/Angular-Calculator/
+
 ## Start
 ![Screenshot](Screenshots/ss1.png)
 
