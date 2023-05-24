@@ -9,28 +9,28 @@ export class AppComponent {
   title = 'Angular-Calculator';
 
   displayNumber: string = '0';
+  hidderNumber: string = '0';
   isFuncClick: boolean = false;
+  isNumberClick: boolean = false
 
   resultDisplay: string = '';
   equalReset: boolean = false;
 
-  isNextDisplayable: boolean = true;
-
-  onClickValue (val: string, type: any){
+  onClickValue (val: string, type: any){ //when you press any button
     if(type == 'number'){
       this.onNumberClick(val);
-      this.isNextDisplayable = true
     }
     else if(type == 'function'){
+
       this.onFunctionClick(val)
-      this.isNextDisplayable = false
     }
 
     if(!this.isFuncClick)                           //if a funciton was not clicked
-      this.resultDisplay = eval(this.displayNumber);
+      this.resultDisplay = eval(this.displayNumber);//evaluate the number that was displayed
   }
 
   onNumberClick(val: string){
+    this.isNumberClick = true;
     if(this.displayNumber == '0' || this.equalReset){ //if the number is 0
       this.displayNumber = val;                       //add number to display string
       this.equalReset = false;
@@ -43,6 +43,7 @@ export class AppComponent {
   }
 
   onFunctionClick(val: string){
+    this.isNumberClick = false;
     this.isFuncClick = true;
     this.equalReset = false;
 
@@ -50,22 +51,30 @@ export class AppComponent {
       this.clearAll();
     else if(val == '=')
       this.onEqualPress();
+
+    if(val == '=' || val == 'ac')
+      null
+    else if(!this.isFunctionValid(this.displayNumber))
+      null
+    else
+      this.displayNumber += val;
       
+    /*
     if(val == '=' || val == 'ac')
       null
     else
       this.displayNumber += val;
+    */
+    
   }
   
   multiplyButton(){
-    this.isNextDisplayable = false;
   }
+
   divisionButton(){}
   additionButton(){}
   subtractButton(){}
   backspaceButton(){}
-
-
 
   onEqualPress(){ //if equal button is pressed
     this.equalReset = true;
@@ -79,14 +88,12 @@ export class AppComponent {
     this.displayNumber = '0';
   }
 
-
-
   isLastCharNumber(str: string): boolean {
     const lastChar = str.charAt(str.length - 1);
     return !isNaN(Number(lastChar));
   }
 
-  /*
+  
   isFunctionValid(str: string): boolean {
     const lastChar = str.charAt(str.length - 1);
     if(lastChar == '+' || lastChar == '-' || lastChar == '*' || lastChar == '/' ||
@@ -95,5 +102,5 @@ export class AppComponent {
     else
       return true
   }
-  */
+  
 }
