@@ -1,6 +1,7 @@
 <div class = 
   "min-w-screen min-h-screen
   bg-teal-900
+  h-4/5
   flex place-items-center
   px-5 py-5">
   
@@ -54,10 +55,10 @@
       <div class="grid grid-cols-4 gap-3">
         <button class="bg-gray-300 rounded-2xl w-20 h-20
                        text-red-500 font-bold text-4xl"
-                       (click)="onClickValue('c', 'function')">AC</button>
+                       (click)="onClickValue('ac', 'function')">AC</button>
         <button class="bg-gray-300 rounded-2xl w-20 h-20
                        text-red-500 font-bold text-4xl"
-                        ><</button>
+                        (click)="backspaceButton()"><</button>
         <button class="bg-gray-300 rounded-2xl w-20 h-20
                        text-red-500 font-bold text-4xl"
                        (click)="onClickValue('%', 'function')">%</button>

@@ -1,5 +1,3 @@
-import { KeyValuePipe } from '@angular/common';
-import { IfStmt } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -16,23 +14,30 @@ export class AppComponent {
   resultDisplay: string = '';
   equalReset: boolean = false;
 
+  isNextDisplayable: boolean = true;
+
   onClickValue (val: string, type: any){
-    if(type == 'number')
+    if(type == 'number'){
       this.onNumberClick(val);
-    else if(type == 'function')
+      this.isNextDisplayable = true
+    }
+    else if(type == 'function'){
       this.onFunctionClick(val)
-    
-    if(!this.isFuncClick)
+      this.isNextDisplayable = false
+    }
+
+    if(!this.isFuncClick)                           //if a funciton was not clicked
       this.resultDisplay = eval(this.displayNumber);
   }
 
   onNumberClick(val: string){
-    if(this.displayNumber == '0' || this.equalReset){
-      this.displayNumber = val;
+    if(this.displayNumber == '0' || this.equalReset){ //if the number is 0
+      this.displayNumber = val;                       //add number to display string
       this.equalReset = false;
     }
-    else
-      this.displayNumber += val;
+    else{
+      this.displayNumber += val;                      //add the number to the display string
+    }
 
     this.isFuncClick = false;
   }
@@ -41,18 +46,28 @@ export class AppComponent {
     this.isFuncClick = true;
     this.equalReset = false;
 
-    if(val == 'c')
+    if(val == 'ac')
       this.clearAll();
     else if(val == '=')
       this.onEqualPress();
-
-    if(val == '=' || val == 'c')
+      
+    if(val == '=' || val == 'ac')
       null
     else
       this.displayNumber += val;
   }
+  
+  multiplyButton(){
+    this.isNextDisplayable = false;
+  }
+  divisionButton(){}
+  additionButton(){}
+  subtractButton(){}
+  backspaceButton(){}
 
-  onEqualPress(){
+
+
+  onEqualPress(){ //if equal button is pressed
     this.equalReset = true;
 
     this.displayNumber = this.resultDisplay.toString();
@@ -64,4 +79,21 @@ export class AppComponent {
     this.displayNumber = '0';
   }
 
+
+
+  isLastCharNumber(str: string): boolean {
+    const lastChar = str.charAt(str.length - 1);
+    return !isNaN(Number(lastChar));
+  }
+
+  /*
+  isFunctionValid(str: string): boolean {
+    const lastChar = str.charAt(str.length - 1);
+    if(lastChar == '+' || lastChar == '-' || lastChar == '*' || lastChar == '/' ||
+      lastChar == '%' || lastChar == '<' || lastChar == '.' )
+      return false
+    else
+      return true
+  }
+  */
 }
