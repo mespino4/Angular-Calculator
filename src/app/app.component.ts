@@ -8,9 +8,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular-Calculator';
 
+  /*This string is displayed on screen as the user is clicking buttons*/
   displayNumber: string = '0';
+
+  /*This variable is used to to check if a function button was just clicked
+  whenever a function type button is pressed it is set to true and when a number type
+  button is pressed it is set to false*/
   isFuncClick: boolean = false;
 
+  /*This string is displayed on the result screen as the user is clicking buttons
+  this string is evaluated and displayed on screen*/
   resultDisplay: string = '';
   equalReset: boolean = false;
 
@@ -49,7 +56,7 @@ export class AppComponent {
     else if(val == '=')
       this.onEqualPress();
 
-    if(val == '=' || val == 'ac')
+    if(val == '=' || val == 'ac')                                                     
       null
     else if(!this.isFunctionValid(this.displayNumber))
       null
